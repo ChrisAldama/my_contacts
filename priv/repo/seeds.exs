@@ -15,7 +15,7 @@ alias MyContacts.Contact
 alias MyContacts.Helpers
 
 './contacts.json'
-|> File.read!()
-|> Poison.decode!()
+|> File.read!
+|> Poison.decode!
 |> Enum.map(&Helpers.to_atom_map/1)
 |> (&Repo.insert_all(Contact, &1)).()
