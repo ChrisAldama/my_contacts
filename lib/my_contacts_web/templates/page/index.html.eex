@@ -1,4 +1,6 @@
-<div class="container">
-  <div id="contact-list-container">
+<div class="container columns">
+  <div id="contact-list-container" class="column is-narrow-desktop" style={max-width: 960px}>
+  </div>
+  <div id="contact-detail-container" class="is-hidden-mobile column">
   </div>
 </div>
