@@ -1,5 +1,10 @@
 # MyContacts
 
+Requirements:
+  * npm
+  * elixir and phoenix
+  * postgres db
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
@@ -9,12 +14,15 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+## Use Docker and Docker Compose
+Requirements:
+  * Docker
+  * docker-compose
 
-## Learn more
+Instead of installing elixir and npm you can run this project as  docker containers:
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+  * docker-compose build
+  * docker-compose run
+
+Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+
