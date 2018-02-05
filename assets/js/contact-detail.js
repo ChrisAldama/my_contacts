@@ -39,7 +39,7 @@ class ContactDetail extends Component {
     const hide = props.contact_detail? '': 'is-hidden-mobile';
     return (
       <div className={`card ${hide}`}>
-        <a className="is-hidden-desktop delete is-overlay" onClick={() => this.props.detail(null)} />
+        <a className="is-hidden-tablet delete" onClick={() => this.props.detail(null)} />
         <ContactPhoto name={props.name} 
                       contact_photo={props.contact_photo} />
         <ContactInfo address={props}
