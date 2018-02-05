@@ -1,5 +1,17 @@
 version: '3'
+networks:
+  default:
+
 services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 4000:4000
+    environment:
+      DB_HOST: db
+      MIX_ENV: dev
   db:
     image: postgres
     ports:

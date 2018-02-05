@@ -13,9 +13,18 @@
 alias MyContacts.Repo
 alias MyContacts.Contact
 alias MyContacts.Helpers
+import Ecto.Query
 
-'./contacts.json'
-|> File.read!
-|> Poison.decode!
-|> Enum.map(&Helpers.to_atom_map/1)
-|> (&Repo.insert_all(Contact, &1)).()
+contacts =
+  from(c in Contact, select: count(c.id))
+  |> Repo.one()
+
+IO.inspect contacts, label: "number of contacts found"
+
+if contacts == 0 do
+  './contacts.json'
+  |> File.read!
+  |> Poison.decode!
+  |> Enum.map(&Helpers.to_atom_map/1)
+  |> (&Repo.insert_all(Contact, &1)).()
+end

@@ -54,5 +54,5 @@ config :my_contacts, MyContacts.Repo,
   username: "postgres",
   password: "postgres",
   database: "my_contacts_dev",
-  hostname: "localhost",
+  hostname: System.get_env("DB_HOST") || "localhost",
   pool_size: 10
