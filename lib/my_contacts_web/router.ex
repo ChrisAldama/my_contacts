@@ -19,8 +19,13 @@ defmodule MyContactsWeb.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", MyContactsWeb do
-  #   pipe_through :api
-  # end
+  scope "/api/v1" do
+    pipe_through :api
+
+    forward "/graphiql",
+      Absinthe.Plug.GraphiQL,
+      schema: MyContactsWeb.Query,
+      interface: :simple
+  end
+
 end
