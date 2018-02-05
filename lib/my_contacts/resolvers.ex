@@ -21,6 +21,16 @@ defmodule MyContacts.Resolvers do
     end
   end
 
+  defp filter(query, %{field: :address, value: value}) do
+    match = "%#{value}%"
+    query
+    |> where([c], ilike(c.line1, ^match))
+    |> or_where([c], ilike(c.line2, ^match))
+    |> or_where([c], ilike(c.city, ^match))
+    |> or_where([c], ilike(c.state, ^match))
+    |> or_where([c], ilike(c.zip, ^match))
+  end
+
   defp filter(query, %{field: col, value: value}) do
     query
     |> where([c], ilike(field(c, ^col), ^"%#{value}%"))
