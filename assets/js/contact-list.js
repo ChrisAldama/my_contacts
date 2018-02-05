@@ -22,7 +22,7 @@ class ContactList extends Component {
           Contacts
         </p>
         <ContactSearch />
-        <div>
+        <div style={{maxHeight: '75vh', overflowY: 'scroll'}}>
           {this._renderContacts(this.props.contacts, field)}
         </div>
       </nav>

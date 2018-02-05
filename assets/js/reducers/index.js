@@ -6,7 +6,7 @@ import {
 
 const INITIAL_STATE = {
   pagination: {
-    limit: 20,
+    limit: 50,
     offset: 0
   },
   searchBy: {
