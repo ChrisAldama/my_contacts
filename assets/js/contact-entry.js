@@ -1,9 +1,9 @@
 import React from 'react';
 
 const ContactEntry = props => (
-  <p class="panel-block">
+  <a className="panel-block" onClick={props.onClick} href='#'>
     {props.contact.name}
-  </p>
+  </a>
 );
 
 export default ContactEntry;

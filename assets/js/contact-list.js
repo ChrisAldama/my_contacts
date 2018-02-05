@@ -1,18 +1,23 @@
 import React, {Component} from 'react';
 import ContactSearch from './contact-search';
 import ContactEntry from './contact-entry';
+import {connect} from 'react-redux';
+import {detail} from './actions';
 
 class ContactList extends Component {
   _renderContacts(contacts) {
-    return contacts.map((contact, i) => (
-      <ContactEntry key={i} contact={contact} />
+    return contacts.map(contact => (
+      <ContactEntry key={contact.id} 
+                    contact={contact} 
+                    onClick={() => this.props.detail(contact)}/>
     ));
   }
 
   render() {
+    const hide = this.props.contact_detail? 'is-hidden-mobile': '';
     return (
-      <nav class='panel'>
-        <p class='panel-heading'>
+      <nav className={`panel ${hide}`}>
+        <p className='panel-heading'>
           Contacts
         </p>
         <ContactSearch />
@@ -25,7 +30,12 @@ class ContactList extends Component {
 }
 
 ContactList.defaultProps = {
-  contacts: [{name: 'chris sd asd'}, {name: "sad asd asd"}]
+  contacts: []
 };
 
-export default ContactList;
+const mapStateToProps = state => ({
+  contacts: state.all_contacts,
+  contact_detail: state.detail
+});
+
+export default connect(mapStateToProps, {detail})(ContactList);

@@ -25,7 +25,8 @@ defmodule MyContactsWeb.Router do
     forward "/graphiql",
       Absinthe.Plug.GraphiQL,
       schema: MyContactsWeb.Query,
-      interface: :simple
+      interface: :simple,
+      context: %{pubsub: MyContactsWeb.Endpoint}
   end
 
 end

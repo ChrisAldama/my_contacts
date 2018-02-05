@@ -3,6 +3,7 @@ defmodule MyContactsWeb.Query do
   use Absinthe.Schema
   
   object :contact do
+    field :id, :integer
     field :city, :string
     field :line1, :string
     field :line2, :string

@@ -11,7 +11,7 @@ defmodule MyContacts.Resolvers do
       from(c in Contact)
       |> filter(search_by)
       |> pagination(pagination_args)
-      |> order_by(:id)
+      |> order_by(:name)
       |> Repo.all()
     
     if is_list(contacts) and length(contacts) do 
